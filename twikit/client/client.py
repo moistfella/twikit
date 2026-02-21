@@ -155,8 +155,9 @@ class Client:
             response_data = response.text
 
         if isinstance(response_data, dict) and 'errors' in response_data:
-            error_code = response_data['errors'][0]['code']
-            error_message = response_data['errors'][0].get('message')
+            err = response_data['errors'][0]
+            error_code = err.get('code') or err.get('extensions', {}).get('code')
+            error_message = err.get('message')
             if error_code in (37, 64):
                 # Account suspended
                 raise AccountSuspended(error_message)
