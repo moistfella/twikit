@@ -58,9 +58,11 @@ By using Twikit, you can access functionalities such as the following:
 
 ## Installing
 
+**Make sure to uninstall normal Twikit before using!**
+
 ```bash
 
-pip install twikit
+pip install git+https://github.com/moistfella/twikit.git
 
 ```
 
